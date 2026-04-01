@@ -11,11 +11,11 @@
 3. Create `mtb_mw_pctrl_user_config.h` and add configuration options (e.g., variant selection)
 4. Initialize block contexts for the functional blocks to be used
 
-For a detailed usage guide, refer to [Using Power Control Middleware Library](docs/html/page_mtb_mw_pctrl.html).
+For a detailed usage guide, refer to [Using Power Control Middleware Library](https://infineon.github.io/mtb-mw-pctrl/html/page_mtb_mw_pctrl.html).
 
 ## API documentation
 
-[API documentation](docs/html/modules.html)
+[API documentation](https://infineon.github.io/mtb-mw-pctrl/html/index.html)
 
 
 ## Functional blocks
@@ -32,6 +32,7 @@ The following table shows the functional blocks and implementation variants incl
 | | Three phase double decoupling | SRF-PLL with double decoupling network for superior phase tracking in three phase systems under unbalanced grid conditions and voltage sags.
 | **mppt** | Perturb and observe (default)| Maximum Power Point Tracking controller implementing a duty-cycle based perturb and observe algorithm for photovoltaic and other variable power sources.
 <br>
+
 ## Architecture
 
 ### Block context

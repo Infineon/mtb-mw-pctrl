@@ -44,6 +44,6 @@ ARM Compiler                               | 6.19.0 |
 For more information, refer to the following documents:
 
 * [ModusToolbox Power Control Middleware Library README.md](./README.md)
-* [ModusToolbox Power Control Middleware API Reference Guide](./docs/html/modules.html)
+* [ModusToolbox Power Control Middleware API Reference Guide](https://infineon.github.io/mtb-mw-pctrl/html/modules.html)
 * [ModusToolbox&trade; software environment, quick start guide, documentation, and videos](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software)
 * [Infineon Technologies AG](https://www.infineon.com)
