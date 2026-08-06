@@ -4,7 +4,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -137,7 +137,7 @@ extern "C" {
  * <tr><td>3P3Z controller context</td><td>ctrl3p3z_ctx</td>
  *     <td>3PHDD (optional)</td>
  *     <td>Hardware 3P3Z controller context
- *     (when AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW is defined).
+ *     (when FILTER_3P3Z_USE_VARIANT_HW is defined).
  *     See \ref group_filter_3p3z for details.</td></tr>
  * <tr><td>3P3Z scaling factor</td><td>scale_3p3z</td>
  *     <td>3PHDD (optional)</td>
@@ -197,7 +197,7 @@ extern "C" {
  *     <td>Enable 5th-harmonic rejection (1-phase only)</td></tr>
  * <tr><td>AC_RMS_PLL_USE_CMSIS_DSP_LIB</td>
  *     <td>Use ARM CMSIS DSP library for mathematical operations</td></tr>
- * <tr><td>AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW</td>
+ * <tr><td>FILTER_3P3Z_USE_VARIANT_HW</td>
  *     <td>Use hardware 3P3Z controller (3PHDD only)</td></tr>
  * </table>
  * <br>
@@ -230,7 +230,7 @@ extern "C" {
  * \image html ./images/3phasedd.svg width=60%
  *
  * Optionally, the PI controller can be replaced with a hardware-accelerated 3P3Z filter
- * by defining AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW. In this case, the ctrl3p3z_ctx field
+ * by defining FILTER_3P3Z_USE_VARIANT_HW. In this case, the ctrl3p3z_ctx field
  * in the configuration must point to an initialized \ref group_filter_3p3z instance.
  * See @ref group_filter_3p3z for details on configuring the 3P3Z filter. This feature
  * is only available for 3PHDD variant. Support for other variants shall be added in the
@@ -367,7 +367,7 @@ extern "C" {
  *
  * <b>Three-phase double-decoupling variant features (AC_RMS_PLL_USE_VARIANT_3PHDD only):</b>
  *
- * - <b>AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW</b><br>
+ * - <b>FILTER_3P3Z_USE_VARIANT_HW</b><br>
  *   Use hardware 3P3Z filter for PLL controller. Define this macro to replace the PI
  *   controller with a hardware-accelerated 3P3Z filter in the three-phase double-decoupling
  *   variant. This provides more flexibility in controller design and can improve performance

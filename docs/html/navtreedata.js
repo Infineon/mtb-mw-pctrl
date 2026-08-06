@@ -40,6 +40,7 @@ var NAVTREE =
     ] ],
     [ "Using the Library", "page_mtb_mw_pctrl.html", null ],
     [ "MISRA Compliance", "page_mtb_mw_pctrl_misra.html", null ],
+    [ "Changelog", "md__c_h_a_n_g_e_l_o_g.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];

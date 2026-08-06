@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -88,7 +88,9 @@ typedef struct
 
 // Include types only after defining the variant-specific config type
 // coverity[misra_c_2012_rule_20_1_violation]
-#include "filter_3p3z_types.h"
+#include "filter_3p3z_types_df1_q23.h"
+
+#ifdef FILTER_3P3Z_USE_VARIANT_HW
 
 /* ==============================================================================
  *   4. Exported data
@@ -106,17 +108,17 @@ void Filter3p3zInit_HW(filter_3p3z_context_df1_q23_t* const context);
 
 PWRLIB_INLINE void Filter3p3z_HW_inline(
     filter_3p3z_context_df1_q23_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23)
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut)
 {
     cy_pctrl_log_msg(CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_DEBUG, "Entered function %s!\r\n", __func__);
     cy_pctrl_assert_msg((context != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
                         "Context is NULL (uninitialized) in %s!\r\n", __func__);
-    cy_pctrl_assert_msg((dOut_0q23 != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
+    cy_pctrl_assert_msg((dOut != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
                         "Output pointer is NULL in %s!\r\n", __func__);
 
-    Cy_PPCA_HWFILT3P3Z_Write_DATA_IN0(context->vars.variant.base, (uint16_t)dIn0_0q15);
+    Cy_PPCA_HWFILT3P3Z_Write_DATA_IN0(context->vars.variant.base, (uint16_t)dIn0);
     // writing to DATA_IN1 triggers the hardware filter
-    Cy_PPCA_HWFILT3P3Z_Write_DATA_IN1(context->vars.variant.base, (uint16_t)dIn1_0q15);
+    Cy_PPCA_HWFILT3P3Z_Write_DATA_IN1(context->vars.variant.base, (uint16_t)dIn1);
     // Add some delay such that reading the filter status for the first time gives CY_FILTER_IS_FREE.
     // This gives the minimum execution time and is still robust if starting the filter was delayed
     // due to conflicts on the bus.
@@ -136,13 +138,15 @@ PWRLIB_INLINE void Filter3p3z_HW_inline(
     } while (Cy_PPCA_HWFILT3P3Z_ReadFilterStatus(context->vars.variant.base) != CY_FILTER_IS_FREE);
 
     // Read filter output
-    *dOut_0q23 = (int32_t)Cy_PPCA_HWFILT3P3Z_ReadFilterDataOutput(context->vars.variant.base);
+    *dOut = (int32_t)Cy_PPCA_HWFILT3P3Z_ReadFilterDataOutput(context->vars.variant.base);
 }
 
 
 void Filter3p3z_HW_noinline(
     filter_3p3z_context_df1_q23_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23);
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut);
+
+#endif /* FILTER_3P3Z_USE_VARIANT_HW */
 
 #ifdef __cplusplus
 } /* Extern C */

@@ -25,6 +25,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen_style.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -97,8 +98,10 @@ $(document).ready(function(){initNavTree('group__group__filter__3p3z__typedefs__
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p >Context structure and sub-structures for the 3p3z filter block. </p>
+<p >Context structure and sub-structures for the 3p3z filter block, DF2 F32 variant.</p>
+<p >Context structure and sub-structures for the 3p3z filter block, DF1 Q23 and HW variants.</p>
 <p ><br  />
- The application must allocate the context structure (filter_3p3z_context_t) in a memory section of choice. It must set the values of the configuration sub-structure (filter_3p3z_context_t::config). The static sub-structure (filter_3p3z_context_t::vars) contains the static memory the block needs to operate. It must not be initialized by the application. The application has to call the block reset function (<a class="el" href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">Filter3p3zReset</a>) to clear the static sub-structure and the block init function (<a class="el" href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">Filter3p3zInit</a>) to initialize the internal configuration.  </p>
+ The application must allocate the context structure (filter_3p3z_context_t) in a memory section of choice. It must set the values of the configuration sub-structure (filter_3p3z_context_t::config). The static sub-structure (filter_3p3z_context_t::vars) contains the static memory the block needs to operate. It must not be initialized by the application. The application has to call the block reset function (<a class="el" href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">Filter3p3zReset</a>) to clear the static sub-structure and the block init function (<a class="el" href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">Filter3p3zInit</a>) to initialize the internal configuration.  </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -108,18 +111,18 @@ Data Structures</h2></td></tr>
 <tr class="memitem:structfilter__3p3z__config__df1__q23__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df1__q23__t">filter_3p3z_config_df1_q23_t</a></td></tr>
 <tr class="memdesc:structfilter__3p3z__config__df1__q23__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the module configuration, DF1 Q23 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df1__q23__t">More...</a><br /></td></tr>
 <tr class="separator:structfilter__3p3z__config__df1__q23__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structfilter__3p3z__config__df2__f32__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df2__f32__t">filter_3p3z_config_df2_f32_t</a></td></tr>
-<tr class="memdesc:structfilter__3p3z__config__df2__f32__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the module configuration, DF2 F32 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df2__f32__t">More...</a><br /></td></tr>
-<tr class="separator:structfilter__3p3z__config__df2__f32__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structfilter__3p3z__static__df1__q23__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df1__q23__t">filter_3p3z_static_df1_q23_t</a></td></tr>
 <tr class="memdesc:structfilter__3p3z__static__df1__q23__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the static module variables, DF1 Q23 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df1__q23__t">More...</a><br /></td></tr>
 <tr class="separator:structfilter__3p3z__static__df1__q23__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structfilter__3p3z__static__df2__f32__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df2__f32__t">filter_3p3z_static_df2_f32_t</a></td></tr>
-<tr class="memdesc:structfilter__3p3z__static__df2__f32__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the static module variables, DF2 F32 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df2__f32__t">More...</a><br /></td></tr>
-<tr class="separator:structfilter__3p3z__static__df2__f32__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structfilter__3p3z__context__df1__q23__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__context__df1__q23__t">filter_3p3z_context_df1_q23_t</a></td></tr>
 <tr class="memdesc:structfilter__3p3z__context__df1__q23__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Top-level structure of the module, DF1 Q23.  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__context__df1__q23__t">More...</a><br /></td></tr>
 <tr class="separator:structfilter__3p3z__context__df1__q23__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structfilter__3p3z__config__df2__f32__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df2__f32__t">filter_3p3z_config_df2_f32_t</a></td></tr>
+<tr class="memdesc:structfilter__3p3z__config__df2__f32__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the module configuration, DF2 F32 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df2__f32__t">More...</a><br /></td></tr>
+<tr class="separator:structfilter__3p3z__config__df2__f32__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structfilter__3p3z__static__df2__f32__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df2__f32__t">filter_3p3z_static_df2_f32_t</a></td></tr>
+<tr class="memdesc:structfilter__3p3z__static__df2__f32__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to keep the static module variables, DF2 F32 (sub-structure of the modules context).  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df2__f32__t">More...</a><br /></td></tr>
+<tr class="separator:structfilter__3p3z__static__df2__f32__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structfilter__3p3z__context__df2__f32__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__context__df2__f32__t">filter_3p3z_context_df2_f32_t</a></td></tr>
 <tr class="memdesc:structfilter__3p3z__context__df2__f32__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Top-level structure of the module, DF2 F32.  <a href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__context__df2__f32__t">More...</a><br /></td></tr>
 <tr class="separator:structfilter__3p3z__context__df2__f32__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +228,64 @@ Output gain: right shift by 0..7. </td></tr>
 
 </div>
 </div>
+<a name="structfilter__3p3z__static__df1__q23__t" id="structfilter__3p3z__static__df1__q23__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__static__df1__q23__t">&#9670;&nbsp;</a></span>filter_3p3z_static_df1_q23_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct filter_3p3z_static_df1_q23_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a19e344061d92b07333ca11bf3b9f8927" name="a19e344061d92b07333ca11bf3b9f8927"></a>int32_t</td>
+<td class="fieldname">
+x_q23[3]</td>
+<td class="fielddoc">
+History of the input signal (Q0.23) </td></tr>
+<tr><td class="fieldtype">
+<a id="af042b871479667541a6ea693baf5ff0e" name="af042b871479667541a6ea693baf5ff0e"></a>int32_t</td>
+<td class="fieldname">
+y_q23[3]</td>
+<td class="fielddoc">
+History of the output signal (Q0.23) </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structfilter__3p3z__context__df1__q23__t" id="structfilter__3p3z__context__df1__q23__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__context__df1__q23__t">&#9670;&nbsp;</a></span>filter_3p3z_context_df1_q23_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct filter_3p3z_context_df1_q23_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9c6a4cbbe9510a40c8dae00612c3354d" name="a9c6a4cbbe9510a40c8dae00612c3354d"></a><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df1__q23__t">filter_3p3z_static_df1_q23_t</a></td>
+<td class="fieldname">
+vars</td>
+<td class="fielddoc">
+Structure containing the static context variables. </td></tr>
+<tr><td class="fieldtype">
+<a id="aae45cdbf59d56a0d9fac9b890232d5f3" name="aae45cdbf59d56a0d9fac9b890232d5f3"></a><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df1__q23__t">filter_3p3z_config_df1_q23_t</a></td>
+<td class="fieldname">
+config</td>
+<td class="fielddoc">
+Configuration structure. </td></tr>
+</table>
+
+</div>
+</div>
 <a name="structfilter__3p3z__config__df2__f32__t" id="structfilter__3p3z__config__df2__f32__t"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__config__df2__f32__t">&#9670;&nbsp;</a></span>filter_3p3z_config_df2_f32_t</h2>
 
@@ -272,35 +333,6 @@ min</td>
 
 </div>
 </div>
-<a name="structfilter__3p3z__static__df1__q23__t" id="structfilter__3p3z__static__df1__q23__t"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__static__df1__q23__t">&#9670;&nbsp;</a></span>filter_3p3z_static_df1_q23_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct filter_3p3z_static_df1_q23_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="3">Data Fields</th></tr>
-<tr><td class="fieldtype">
-<a id="a19e344061d92b07333ca11bf3b9f8927" name="a19e344061d92b07333ca11bf3b9f8927"></a>int32_t</td>
-<td class="fieldname">
-x_q23[3]</td>
-<td class="fielddoc">
-History of the input signal (Q0.23) </td></tr>
-<tr><td class="fieldtype">
-<a id="af042b871479667541a6ea693baf5ff0e" name="af042b871479667541a6ea693baf5ff0e"></a>int32_t</td>
-<td class="fieldname">
-y_q23[3]</td>
-<td class="fielddoc">
-History of the output signal (Q0.23) </td></tr>
-</table>
-
-</div>
-</div>
 <a name="structfilter__3p3z__static__df2__f32__t" id="structfilter__3p3z__static__df2__f32__t"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__static__df2__f32__t">&#9670;&nbsp;</a></span>filter_3p3z_static_df2_f32_t</h2>
 
@@ -320,35 +352,6 @@ History of the output signal (Q0.23) </td></tr>
 v_n[3]</td>
 <td class="fielddoc">
 </td></tr>
-</table>
-
-</div>
-</div>
-<a name="structfilter__3p3z__context__df1__q23__t" id="structfilter__3p3z__context__df1__q23__t"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structfilter__3p3z__context__df1__q23__t">&#9670;&nbsp;</a></span>filter_3p3z_context_df1_q23_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct filter_3p3z_context_df1_q23_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="3">Data Fields</th></tr>
-<tr><td class="fieldtype">
-<a id="a9c6a4cbbe9510a40c8dae00612c3354d" name="a9c6a4cbbe9510a40c8dae00612c3354d"></a><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__static__df1__q23__t">filter_3p3z_static_df1_q23_t</a></td>
-<td class="fieldname">
-vars</td>
-<td class="fielddoc">
-Structure containing the static context variables. </td></tr>
-<tr><td class="fieldtype">
-<a id="aae45cdbf59d56a0d9fac9b890232d5f3" name="aae45cdbf59d56a0d9fac9b890232d5f3"></a><a class="el" href="group__group__filter__3p3z__typedefs__and__structures.html#structfilter__3p3z__config__df1__q23__t">filter_3p3z_config_df1_q23_t</a></td>
-<td class="fieldname">
-config</td>
-<td class="fielddoc">
-Configuration structure. </td></tr>
 </table>
 
 </div>

@@ -6,7 +6,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -82,6 +82,9 @@ extern "C" {
  * <tr><td>mppt</td><td>Perturb and observe (default)</td>
  *     <td>Duty-cycle based P&amp;O algorithm for maximum power point tracking
  *     in photovoltaic and other variable power sources.</td></tr>
+ * <tr><td>rfc</td><td>F32 (default)</td>
+ *     <td>Reference Frame Control with cascaded outer voltage and inner current
+ *     loops for three-phase converter control.</td></tr>
  * </table>
  *
  * Each block provides multiple implementation variants optimized for different use cases
@@ -139,9 +142,6 @@ extern "C" {
  * <tr><td>ac_rms_pll</td><td>AC_RMS_PLL_USE_CMSIS_DSP_LIB</td>
  *     <td>not defined</td>
  *     <td>Use ARM CMSIS DSP library for math operations</td></tr>
- * <tr><td>ac_rms_pll</td><td>AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW</td>
- *     <td>not defined</td>
- *     <td>Use hardware 3P3Z controller (3PHDD only)</td></tr>
  * <tr><td>ac_rms_pll</td><td>ACRMSPLL_DCOFFSET_REJECT</td>
  *     <td>not defined</td>
  *     <td>Enable DC offset rejection (1PH only)</td></tr>
@@ -155,6 +155,22 @@ extern "C" {
  *     <td>defined</td><td>Use Perturb and Observe variant</td></tr>
  * <tr><td>mppt</td><td>MPPT_USE_INLINE</td>
  *     <td>not defined</td><td>Use function inlining</td></tr>
+ * <tr><td>rfc</td><td>RFC_USE_VARIANT_F32</td>
+ *     <td>defined</td><td>Use RFC float32 variant</td></tr>
+ * <tr><td>rfc</td><td>RFC_USE_INLINE</td>
+ *     <td>not defined</td><td>Use function inlining</td></tr>
+ * <tr><td>rfc</td><td>RFC_LPF_CAP_VOLTAGE_EN</td>
+ *     <td>not defined</td><td>Enable capacitor-voltage low-pass filtering</td></tr>
+ * <tr><td>rfc</td><td>RFC_LPF_DQ_VOLTAGE_EN</td>
+ *     <td>not defined</td><td>Enable d/q voltage low-pass filtering</td></tr>
+ * <tr><td>rfc</td><td>RFC_LPF_CURRENT_EN</td>
+ *     <td>not defined</td><td>Enable current-feedback low-pass filtering</td></tr>
+ * <tr><td>rfc</td><td>RFC_USE_COMMON_MODE_INJECTION</td>
+ *     <td>not defined</td><td>Enable common-mode injection</td></tr>
+ * <tr><td>rfc</td><td>RFC_USE_CMSIS_DSP_LIB</td>
+ *     <td>not defined</td><td>Use CMSIS-DSP trigonometric functions</td></tr>
+ * <tr><td>rfc</td><td>RFC_USE_LOCAL_STORAGE</td>
+ *     <td>not defined</td><td>Store intermediate calculations on the stack</td></tr>
  * </table>
  *
  * Without defining the macros for variant selection, the default variants are used.
@@ -190,6 +206,7 @@ extern "C" {
 #include "filter_3p3z/filter_3p3z.h"
 #include "ac_rms_pll/ac_rms_pll.h"
 #include "mppt/mppt.h"
+#include "rfc/rfc.h"
 
 /* ==============================================================================
  *   3. Definitions

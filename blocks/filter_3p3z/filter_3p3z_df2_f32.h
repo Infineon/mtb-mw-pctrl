@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -46,9 +46,11 @@ extern "C" {
 #include "mtb_mw_pctrl_compiler.h"
 #include "mtb_mw_pctrl_config.h"
 #include "filter_3p3z_port.h"
-#include "filter_3p3z_types.h"
+#include "filter_3p3z_types_df2_f32.h"
 #include "cy_pctrl_log.h"
 #include <stddef.h>
+
+#ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
 
 /* ==============================================================================
  *   2. Definitions
@@ -150,6 +152,7 @@ void Filter3p3z_DF2_F32_noinline(
     filter_3p3z_context_df2_f32_t* const context,
     float32_t const dIn0, float32_t const dIn1, float32_t* dOut);
 
+#endif /* FILTER_3P3Z_USE_VARIANT_DF2_F32 */
 
 #ifdef __cplusplus
 } /* Extern C */

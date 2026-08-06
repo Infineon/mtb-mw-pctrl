@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -38,6 +38,8 @@
  */
 
 #include "filter_3p3z_df2_f32.h"
+
+#ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
 
 /* ==============================================================================
  *   2. Local definitions
@@ -110,5 +112,7 @@ void Filter3p3z_DF2_F32_noinline(
     Filter3p3z_DF2_F32_inline(context, dIn0, dIn1, dOut);
 }
 
+
+#endif /* FILTER_3P3Z_USE_VARIANT_DF2_F32 */
 
 /* --- End of File ------------------------------------------------ */

@@ -2,7 +2,7 @@
 
 ## What's included?
 
-Power Control Library 1.0.0 with the following functional blocks.
+Power Control Library 1.1.0 with the following functional blocks.
 
   - **3P3Z filter**
     - DF1 Q23 software variant
@@ -14,15 +14,21 @@ Power Control Library 1.0.0 with the following functional blocks.
     - Three-phase with dual decoupling network variant
   - **MPPT**
     - Perturb and observe variant
+  - **Reference frame control (RFC)**
+    - F32 reference-frame controller with cascaded outer voltage and inner current loops
+
 
 Refer to the [README.md](./README.md) for complete documentation and usage examples.
 
 ## Updated blocks
-*None for initial release.*
+
+- Added the reference frame control (RFC) block for three-phase converter control.
+- Added RFC configuration, context ownership, controller-implementation, and usage documentation.
+
 ## Known issues
-*None for initial release.*
+*None.*
 ## Defect fixes
-*None for initial release.*
+*None.*
 
 ## Supported software and tools
 
@@ -30,7 +36,7 @@ This version of the ModusToolbox&trade; Power Control Middleware Library was val
 
 **Table 1: Software and tools**
 
-Software and tools     | Version 
+Software and tools     | Version
 :---                   | :----
 ModusToolbox&trade; software environment   | 3.5.0, 3.6.0, 3.7.0 |
 GCC Compiler                               | 11.3.1, 14.2.1 |
@@ -44,6 +50,7 @@ ARM Compiler                               | 6.19.0 |
 For more information, refer to the following documents:
 
 * [ModusToolbox Power Control Middleware Library README.md](./README.md)
+* [ModusToolbox Power Control Middleware Library changelog](./CHANGELOG.md)
 * [ModusToolbox Power Control Middleware API Reference Guide](https://infineon.github.io/mtb-mw-pctrl/html/modules.html)
 * [ModusToolbox&trade; software environment, quick start guide, documentation, and videos](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software)
 * [Infineon Technologies AG](https://www.infineon.com)

@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['limmax_5fq23_0',['limMax_q23',['../group__group__filter__3p3z__typedefs__and__structures.html#a28ee1e55a7ef3182f52326e575941341',1,'filter_3p3z_config_df1_q23_t']]],
-  ['limmin_5fq23_1',['limMin_q23',['../group__group__filter__3p3z__typedefs__and__structures.html#aecaa4ebf55b771df3322c83c2dfc42ed',1,'filter_3p3z_config_df1_q23_t']]],
-  ['lpc_5fdd_5falpha_2',['lpc_dd_alpha',['../group__group__ac__rms__pll__typedefs__and__structures.html#abb385cbe66ce00980557da77a421e274',1,'ac_rms_pll_config_t']]],
-  ['lpc_5fdd_5fbeta_3',['lpc_dd_beta',['../group__group__ac__rms__pll__typedefs__and__structures.html#acc71a2fea60c0d0705166126b223e3b6',1,'ac_rms_pll_config_t']]],
-  ['lpc_5fdd_5finit_4',['lpc_dd_init',['../group__group__ac__rms__pll__typedefs__and__structures.html#a075017f4d483bd2bd72fa2bbc8cc9273',1,'ac_rms_pll_config_t']]],
-  ['lpc_5fomega_5falpha_5',['lpc_omega_alpha',['../group__group__ac__rms__pll__typedefs__and__structures.html#a625b3cada8b3a9e90494c866b2def729',1,'ac_rms_pll_config_t']]],
-  ['lpc_5fomega_5fbeta_6',['lpc_omega_beta',['../group__group__ac__rms__pll__typedefs__and__structures.html#a6667e0d4e403cf630fdba6838e0f78d4',1,'ac_rms_pll_config_t']]],
-  ['lpc_5fomega_5finit_7',['lpc_omega_init',['../group__group__ac__rms__pll__typedefs__and__structures.html#abe0a7cfc57bcca3123306852360c7fe2',1,'ac_rms_pll_config_t']]],
-  ['lpc_5frms_5falpha_8',['lpc_rms_alpha',['../group__group__ac__rms__pll__typedefs__and__structures.html#ae298134de70aa4bcce127b8515e9f6f6',1,'ac_rms_pll_config_t']]],
-  ['lpc_5frms_5fbeta_9',['lpc_rms_beta',['../group__group__ac__rms__pll__typedefs__and__structures.html#a18c7ca3c177e861a76527221ba6fc895',1,'ac_rms_pll_config_t']]],
-  ['lpc_5frms_5finit_10',['lpc_rms_init',['../group__group__ac__rms__pll__typedefs__and__structures.html#a41319c0c4859648eee5da4297d8e62fd',1,'ac_rms_pll_config_t']]]
+  ['kdc_0',['Kdc',['../group__group__ac__rms__pll__typedefs__and__structures.html#aab3c54dfd0f91d61bcde1139f1ae435c',1,'ac_rms_pll_config_t']]],
+  ['ki_1',['Ki',['../group__group__ac__rms__pll__typedefs__and__structures.html#a573c067ea09349dc8f44299fb77dcd8d',1,'ac_rms_pll_config_t']]],
+  ['kosg_2',['Kosg',['../group__group__ac__rms__pll__typedefs__and__structures.html#acef02cec44476aceb4689def37d1a8f5',1,'ac_rms_pll_config_t']]],
+  ['kosg3_3',['Kosg3',['../group__group__ac__rms__pll__typedefs__and__structures.html#a11ccfabcd3b3ec0bb1af5638eb937f09',1,'ac_rms_pll_config_t']]],
+  ['kosg5_4',['Kosg5',['../group__group__ac__rms__pll__typedefs__and__structures.html#a9d5b9307ea4d7cc275d04565222280b0',1,'ac_rms_pll_config_t']]],
+  ['kp_5',['Kp',['../group__group__ac__rms__pll__typedefs__and__structures.html#a2f56672e4f0c17a5ebe6a0509ff4e66d',1,'ac_rms_pll_config_t']]],
+  ['kp_5fzerosequence_6',['Kp_zerosequence',['../group__group__rfc__typedefs__and__structures.html#ad58f097461abe3982c5ae3e0131c367d',1,'rfc_outer_config_t']]],
+  ['krms_7',['Krms',['../group__group__ac__rms__pll__typedefs__and__structures.html#a01a0f9020be3e38a4c599f9a4643e4b7',1,'ac_rms_pll_config_t']]]
 ];

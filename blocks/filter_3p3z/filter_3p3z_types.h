@@ -4,7 +4,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -65,77 +65,15 @@ extern "C" {
  * \snippet{doc} filter_3p3z.h snippet_filter_3p3z_using_the_API
  */
 
-/**
- * Structure used to keep the module configuration, DF1 Q23 (sub-structure of the modules context).
- */
-typedef struct
-{
-    int32_t cx_q23[4];          /**< Filter coefficients CX0, CX1, CX2, CX3 of input LPF (Q0.23) */
-    int32_t cy_q23[3];          /**< Filter coefficients CY1, CY2, CY3 of output LPF (Q0.23) */
-    int32_t dOutOffset_q23;     /**< Output offset: value (Q0.23) added to the output */
-    int32_t limMax_q23;         /**< Output limiter max value (Q0.23) */
-    int32_t limMin_q23;         /**< Output limiter min value (Q0.23) */
-    uint8_t scaleCx;            /**< Input CX scaling factor: left shift by 0..7 */
-    uint8_t scaleCy;            /**< Input CY scaling factor: left shift by 0..7 */
-    uint8_t gIn;                /**< Input gain: left shift by 0..3 */
-    uint8_t gOut;               /**< Output gain: right shift by 0..7 */
-} filter_3p3z_config_df1_q23_t;
+#if defined(FILTER_3P3Z_USE_VARIANT_DF1_Q23) || defined(FILTER_3P3Z_USE_VARIANT_HW)
 
+#include "filter_3p3z_types_df1_q23.h"
 
-/**
- * Structure used to keep the module configuration, DF2 F32 (sub-structure of the modules context).
- */
-typedef struct
-{
-    float32_t cx[4];
-    float32_t cy[3];
-    float32_t antiwindup_gain;
-    float32_t max;          // Max value to clamp the regulator output.
-    float32_t min;          // Min value to clamp the regulator output.
-} filter_3p3z_config_df2_f32_t;
+#elif defined(FILTER_3P3Z_USE_VARIANT_DF2_F32)
 
+#include "filter_3p3z_types_df2_f32.h"
 
-/**
- * Structure used to keep the static module variables, DF1 Q23 (sub-structure of the modules context).
- */
-typedef struct
-{
-    int32_t x_q23[3];                       /**< History of the input signal (Q0.23) */
-    int32_t y_q23[3];                       /**< History of the output signal (Q0.23) */
-    #ifdef FILTER_3P3Z_USE_VARIANT_CONFIG
-    filter_3p3z_variant_config_t variant;   /**< variant configuration */
-    #endif
-} filter_3p3z_static_df1_q23_t;
-
-
-/**
- * Structure used to keep the static module variables, DF2 F32 (sub-structure of the modules context).
- */
-typedef struct
-{
-    float32_t v_n[3];
-} filter_3p3z_static_df2_f32_t;
-
-
-/**
- * Top-level structure of the module, DF1 Q23
- */
-typedef struct
-{
-    filter_3p3z_static_df1_q23_t vars;      /**< Structure containing the static context variables */
-    filter_3p3z_config_df1_q23_t config;    /**< Configuration structure */
-} filter_3p3z_context_df1_q23_t;
-
-
-/**
- * Top-level structure of the module, DF2 F32
- */
-typedef struct
-{
-    filter_3p3z_static_df2_f32_t vars;      /**< Structure containing the static context variables */
-    filter_3p3z_config_df2_f32_t config;    /**< Configuration structure */
-} filter_3p3z_context_df2_f32_t;
-
+#endif
 
 /** \} group_filter_3p3z_structures */
 

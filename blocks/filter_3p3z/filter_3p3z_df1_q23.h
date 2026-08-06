@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -46,9 +46,11 @@ extern "C" {
 #include "mtb_mw_pctrl_compiler.h"
 #include "mtb_mw_pctrl_config.h"
 #include "filter_3p3z_port.h"
-#include "filter_3p3z_types.h"
+#include "filter_3p3z_types_df1_q23.h"
 #include "cy_pctrl_log.h"
 #include <stddef.h>
+
+#ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
 
 /* ==============================================================================
  *   2. Definitions
@@ -127,19 +129,19 @@ void Filter3p3zInit_DF1_Q23(filter_3p3z_context_df1_q23_t* const context);
  * Filter equation:
  * out[n] = ((b3.x[n-3] + b2.x[n-2] + b1.x[n-1] + b0.x[n])) + ((a3.y[n-3] + a2.y[n-2] + a1.y[n-1]))
  *
- * @param[in] context       : Pointer to the context structure
- * @param[in] dIn0_0q15     : Normalized setpoint (Q0.15)
- * @param[in] dIn1_0q15     : Normalized signal (Q0.15)
- * @param[out] dOut_0q23    : Pointer to output value (Q0.23)
+ * @param[in] context  : Pointer to the context structure
+ * @param[in] dIn0     : Normalized setpoint (Q0.15)
+ * @param[in] dIn1     : Normalized signal (Q0.15)
+ * @param[out] dOut    : Pointer to output value (Q0.23)
  */
 PWRLIB_INLINE void Filter3p3z_DF1_Q23_inline(
     filter_3p3z_context_df1_q23_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23)
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut)
 {
     cy_pctrl_log_msg(CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_DEBUG, "Entered function %s!\r\n", __func__);
     cy_pctrl_assert_msg((context != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
                         "Context is NULL (uninitialized) in %s!\r\n", __func__);
-    cy_pctrl_assert_msg((dOut_0q23 != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
+    cy_pctrl_assert_msg((dOut != NULL), CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_ERROR,
                         "Output pointer is NULL in %s!\r\n", __func__);
 
     #ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23_HW_PPCA_BEHAVIOR
@@ -163,7 +165,7 @@ PWRLIB_INLINE void Filter3p3z_DF1_Q23_inline(
     #endif // if FILTER_3P3Z_USE_VARIANT_DF1_Q23_HW_PPCA_BEHAVIOR
 
     // Input deviation from reference
-    int32_t dIn_1q15 = (int32_t)dIn0_0q15 - dIn1_0q15;
+    int32_t dIn_1q15 = (int32_t)dIn0 - dIn1;
 
     // Input gain, max. 2 bit
     // Note: applying gain does not move the decimal point
@@ -274,13 +276,15 @@ PWRLIB_INLINE void Filter3p3z_DF1_Q23_inline(
         // Keep as is
     }
 
-    *dOut_0q23 = y_1q23;
+    *dOut = y_1q23;
 }
 
 
 void Filter3p3z_DF1_Q23_noinline(
     filter_3p3z_context_df1_q23_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23);
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut);
+
+#endif /* FILTER_3P3Z_USE_VARIANT_DF1_Q23 */
 
 #ifdef __cplusplus
 } /* Extern C */

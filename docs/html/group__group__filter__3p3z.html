@@ -25,6 +25,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen_style.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -106,7 +107,7 @@ Overview</h1>
 </ul>
 <p >The general 3p3z transfer function implemented by all variants is:</p>
 <p >\( H(z) = \frac{cx_0 + cx_1 z^{-1} + cx_2 z^{-2} + cx_3 z^{-3}} {1 - cy_1 z^{-1} - cy_2 z^{-2} - cy_3 z^{-3}} \)</p>
-<p >The Direct Form 1 and the hardware-accelerated variants share the same top-level API (<a class="el" href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">Filter3p3zReset</a>, <a class="el" href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">Filter3p3zInit</a>, * <a class="el" href="group__group__filter__3p3z__functions.html#ga37262cac43cebd4f29513def0b3e8e02">Filter3p3z</a>), allowing seamless switching between software and hardware implementations without application code changes. The Direct Form 2 variant deviates from this API for the data types (single-precision floating-point). </p>
+<p >The Direct Form 1 and the hardware-accelerated variants share the same top-level API (<a class="el" href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">Filter3p3zReset</a>, <a class="el" href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">Filter3p3zInit</a>, * <a class="el" href="group__group__filter__3p3z__functions.html#gabcadca368f5f604277e34144b43e62ec">Filter3p3z</a>), allowing seamless switching between software and hardware implementations without application code changes. The Direct Form 2 variant deviates from this API for the data types (single-precision floating-point). </p>
 <h1><a class="anchor" id="sct_filter_3p3z_configurable_features"></a>
 Configurable features</h1>
 <p ><br  />
@@ -135,7 +136,7 @@ Configurable features</h1>
 </table>
 <h1><a class="anchor" id="sct_filter_3p3z_hardware_variant"></a>
 Using the API</h1>
-<p >The application must allocate the context structure (filter_3p3z_context_t) in a memory section of choice. It must set the values of the configuration sub-structure (filter_3p3z_context_t::config). The static sub-structure (filter_3p3z_context_t::vars) contains the static memory the block needs to operate. It must not be initialized by the application. The application has to call the block reset function (<a class="el" href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">Filter3p3zReset</a>) to clear the static sub-structure and the block init function (<a class="el" href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">Filter3p3zInit</a>) to initialize the internal configuration.  </p>
+<p >The application must allocate the context structure (filter_3p3z_context_t) in a memory section of choice. It must set the values of the configuration sub-structure (filter_3p3z_context_t::config). The static sub-structure (filter_3p3z_context_t::vars) contains the static memory the block needs to operate. It must not be initialized by the application. The application has to call the block reset function (<a class="el" href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">Filter3p3zReset</a>) to clear the static sub-structure and the block init function (<a class="el" href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">Filter3p3zInit</a>) to initialize the internal configuration.  </p>
 <h1><a class="anchor" id="sct_filter_3p3z_variants"></a>
 Variants and configuration options</h1>
 <p >This section describes the available variants and configuration options. The Direct Form 1 and the hardware-accelerated variants share the same API so that changing the block interface does not require further changes to the application code when switching between the variants. The Direct Form 2 variant deviates from this API for the data types (single-precision floating-point). <br  />
@@ -209,7 +210,7 @@ Software variants</h2>
 <div class="line"> </div>
 <div class="line">    // execute filter function</div>
 <div class="line">    Filter3p3z(&amp;filter3p3z_context, din0, din1, &amp;dout);</div>
-<div class="line">}    </div>
+<div class="line">}</div>
 </div><!-- fragment --> <h2><a class="anchor" id="ssct_filter_3p3z_hardware_variant"></a>
 Hardware variant</h2>
 <p >If the compile target is PPCA HW, the 3p3z hardware filter can be used.</p>
@@ -253,7 +254,7 @@ Hardware variant</h2>
 <div class="line"> </div>
 <div class="line">    // execute filter function</div>
 <div class="line">    Filter3p3z(&amp;filter3p3z_context, din0, din1, &amp;dout);</div>
-<div class="line">}    </div>
+<div class="line">}</div>
 </div><!-- fragment --> <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 API Reference</h2></td></tr>

@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -38,6 +38,8 @@
  */
 
 #include "filter_3p3z_df1_q23.h"
+
+#ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
 
 /* ==============================================================================
  *   2. Local definitions
@@ -106,12 +108,14 @@ void Filter3p3zInit_DF1_Q23(filter_3p3z_context_df1_q23_t* const context)
 
 void Filter3p3z_DF1_Q23_noinline(
     filter_3p3z_context_df1_q23_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23)
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut)
 {
     cy_pctrl_log_msg(CYLF_PCTRL_MIDDLEWARE, CY_PCTRL_LOG_DEBUG, "Entered function %s!\r\n", __func__);
 
-    Filter3p3z_DF1_Q23_inline(context, dIn0_0q15, dIn1_0q15, dOut_0q23);
+    Filter3p3z_DF1_Q23_inline(context, dIn0, dIn1, dOut);
 }
 
+
+#endif /* FILTER_3P3Z_USE_VARIANT_DF1_Q23 */
 
 /* --- End of File ------------------------------------------------ */

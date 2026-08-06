@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -114,7 +114,7 @@ void AcRmsPllReset_3phdd(ac_rms_pll_context_t* const context)
     context->vars.dd_neg_filt = context->config.lpc_dd_init;
     context->vars.dq_neg_filt = context->config.lpc_dd_init;
 
-    #ifdef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+    #ifdef FILTER_3P3Z_USE_VARIANT_HW
     context->vars.ctrl3p3z_out = 0.0f; /* Clear the last controller output */
     Filter3p3zReset(&context->config.ctrl3p3z_ctx);
     #endif
@@ -143,7 +143,7 @@ void AcRmsPllInit_3phdd(ac_rms_pll_context_t* const context)
     context->vars.dd_neg_filt = context->config.lpc_dd_init;
     context->vars.dq_neg_filt = context->config.lpc_dd_init;
 
-    #ifdef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+    #ifdef FILTER_3P3Z_USE_VARIANT_HW
     Filter3p3zInit(&context->config.ctrl3p3z_ctx);
     #endif
 

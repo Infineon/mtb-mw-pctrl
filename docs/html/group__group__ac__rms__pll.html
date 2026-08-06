@@ -25,6 +25,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen_style.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -138,7 +139,7 @@ Configurable features</h1>
 <tr>
 <td>Sequence filter initial value</td><td>lpc_dd_init </td><td>3PHDD </td><td>Initial value of output of low pass filter for sequence extraction ( \(\frac{\alpha \cdot z}{z - \beta}\)) </td></tr>
 <tr>
-<td>3P3Z controller context</td><td>ctrl3p3z_ctx </td><td>3PHDD (optional) </td><td>Hardware 3P3Z controller context (when AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW is defined). See <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> for details. </td></tr>
+<td>3P3Z controller context</td><td>ctrl3p3z_ctx </td><td>3PHDD (optional) </td><td>Hardware 3P3Z controller context (when FILTER_3P3Z_USE_VARIANT_HW is defined). See <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> for details. </td></tr>
 <tr>
 <td>3P3Z scaling factor</td><td>scale_3p3z </td><td>3PHDD (optional) </td><td>Scaling factor to convert Q0.23 to float for 3P3Z output </td></tr>
 <tr>
@@ -183,7 +184,7 @@ Variants and configuration options</h1>
 <tr>
 <td>AC_RMS_PLL_USE_CMSIS_DSP_LIB </td><td>Use ARM CMSIS DSP library for mathematical operations </td></tr>
 <tr>
-<td>AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW </td><td>Use hardware 3P3Z controller (3PHDD only) </td></tr>
+<td>FILTER_3P3Z_USE_VARIANT_HW </td><td>Use hardware 3P3Z controller (3PHDD only) </td></tr>
 </table>
 <p><br  />
  <b>Three-phase variant</b> <br  />
@@ -197,7 +198,7 @@ Variants and configuration options</h1>
 <p >The DDSRF variant uses two synchronous reference frames (positive and negative sequence) and a cross-decoupling mechanism to separate sequence components, allowing the PLL to track only the positive sequence component even under severe unbalance. The design of this variant is shown in the block diagram below. </p><div class="image">
 <object type="image/svg+xml" data="3phasedd.svg" width="60%" style="pointer-events: none;"></object>
 </div>
-<p >Optionally, the PI controller can be replaced with a hardware-accelerated 3P3Z filter by defining AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW. In this case, the ctrl3p3z_ctx field in the configuration must point to an initialized <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> instance. See <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> for details on configuring the 3P3Z filter. This feature is only available for 3PHDD variant. Support for other variants shall be added in the future.</p>
+<p >Optionally, the PI controller can be replaced with a hardware-accelerated 3P3Z filter by defining FILTER_3P3Z_USE_VARIANT_HW. In this case, the ctrl3p3z_ctx field in the configuration must point to an initialized <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> instance. See <a class="el" href="group__group__filter__3p3z.html">Filter 3p3z</a> for details on configuring the 3P3Z filter. This feature is only available for 3PHDD variant. Support for other variants shall be added in the future.</p>
 <p >The three-phase double-decoupling variant is selected by defining AC_RMS_PLL_USE_VARIANT_3PHDD in the user config file. </p><div class="fragment"><div class="line">#define AC_RMS_PLL_USE_VARIANT_3PHDD</div>
 </div><!-- fragment --><p ><b>Single-phase variant</b> <br  />
  This variant implements the SRF-PLL for single-phase systems. Since only a single-phase signal is available, a Second Order Generalized Integrator (SOGI) is used to generate the orthogonal component (beta) from the input signal (alpha). The SOGI acts as an Orthogonal Signal Generator (OSG) that creates the missing quadrature signal required for SRF-PLL operation. Once both alpha and beta components are available, the single-phase variant uses the same SRF-PLL architecture as the three-phase variant, providing robust phase tracking capabilities for single-phase grid applications. The design of this variant is shown in the block diagram below. </p><div class="image">

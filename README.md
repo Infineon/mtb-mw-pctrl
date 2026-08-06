@@ -22,8 +22,8 @@ For a detailed usage guide, refer to [Using Power Control Middleware Library](ht
 
 The following table shows the functional blocks and implementation variants included in this library.
 
-| Block name     | Variant | Description 
-| :------------- | :------ | :---------- 
+| Block name     | Variant | Description
+| :------------- | :------ | :----------
 | **filter_3p3z** | DF1-Q23 (default) | Software implementation in Direct Form 1 using Q0.23 fixed-point arithmetic. Bit-accurate emulation of HWFILTER peripheral from PSOC Control Performance line MCUs for portability.
 | | Hardware | Hardware-accelerated implementation using HWFILTER peripheral on PSOC Control Performance line MCUs for optimal performance.
 | | DF2-F32 | Software implementation in Direct Form 2 using single-precision floating-point for ease of use on MCUs that do not support HWFILTER peripheral.
@@ -31,6 +31,7 @@ The following table shows the functional blocks and implementation variants incl
 | | Single phase | SRF-PLL with SOGI (Second Order Generalized Integrator) for quadrature signal generation in single phase systems. Supports DC offset and harmonic rejection.
 | | Three phase double decoupling | SRF-PLL with double decoupling network for superior phase tracking in three phase systems under unbalanced grid conditions and voltage sags.
 | **mppt** | Perturb and observe (default)| Maximum Power Point Tracking controller implementing a duty-cycle based perturb and observe algorithm for photovoltaic and other variable power sources.
+| **rfc** | F32 (default) | Reference Frame Control with cascaded outer voltage and inner current loops for three-phase converter control. The embedded `filter_3p3z` controllers support DF1-Q23 (default), DF2-F32, and hardware implementations.
 <br>
 
 ## Architecture
@@ -38,8 +39,8 @@ The following table shows the functional blocks and implementation variants incl
 ### Block context
 
 Each functional block uses a context structure that contains:
-- **Configuration parameters:** Block-specific settings and coefficients  
-- **Internal state:** Runtime memory for filters, accumulators, and intermediate values
+- **Configuration parameters:** Block-specific settings and coefficients
+- **Runtime data:** Application-provided inputs, block-maintained state, intermediate values, and outputs
 - **Variant configuration:** Hardware-specific settings when applicable
 
 The application is responsible for:
@@ -85,15 +86,15 @@ The names of such macros and the block variant that is default can be found in t
 ### Resource management
 
 Besides the available memory, there is no limitation on the number of instantiations of context for a given library block. However, some library blocks provide variants that make use of specific hardware functionality. Such variants are tied to MCU targets that implement this functionality in hardware. Multi-instantiation of such block variants is possible as long as there are enough hardware resources available. The Power Control Middleware Library does not implement any resource management: no measures are taken to prevent the same hardware from being used by multiple instances of the library blocks. Resource management is up to the application.
-Context structures hold both the configuration and runtime data for a block. Application using the library initiates, manages and owns block data. 
+Context structures hold both the configuration and runtime data for a block. Application using the library initiates, manages and owns block data.
 
 ## Troubleshooting
 
-Issue | Possible cause | Solution 
+Issue | Possible cause | Solution
 :---- | :------------- | :-------
-Compilation errors with hardware variants | Target does not support hardware acceleration | Use software variant or check device capabilities 
-Unexpected results | Uninitialized context | Ensure init function is called after initializing block context 
-Resource conflicts | Multiple instances using same context or hardware instance | Implement application-level resource management 
+Compilation errors with hardware variants | Target does not support hardware acceleration | Use software variant or check device capabilities
+Unexpected results | Uninitialized context | Ensure init function is called after initializing block context
+Resource conflicts | Multiple instances using same context or hardware instance | Implement application-level resource management
 
 <br>
 

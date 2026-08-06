@@ -76,6 +76,7 @@ extern "C" {
 #endif
 
 #include <stdarg.h>
+#include "cy_utils.h"
 #include "cy_result.h"
 
 #ifdef PCTRL_ENABLE_LOGS

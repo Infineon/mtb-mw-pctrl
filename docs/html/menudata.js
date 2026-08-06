@@ -26,4 +26,5 @@ var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Using the Library",url:"page_mtb_mw_pctrl.html"},
 {text:"MISRA Compliance",url:"page_mtb_mw_pctrl_misra.html"},
+{text:"Changelog",url:"md__c_h_a_n_g_e_l_o_g.html"},
 {text:"API Reference",url:"modules.html"}]}

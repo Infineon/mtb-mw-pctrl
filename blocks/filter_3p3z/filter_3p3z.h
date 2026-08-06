@@ -4,7 +4,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -325,43 +325,30 @@ extern "C" {
  * ==============================================================================
  */
 
+// allow MW API to define any number symbols
+// (exception to Misra-C 2012 Rule 2.3)
 #ifdef FILTER_3P3Z_USE_VARIANT_HW
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_config_df1_q23_t filter_3p3z_config_t;
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_static_df1_q23_t filter_3p3z_static_t;
 typedef filter_3p3z_context_df1_q23_t filter_3p3z_context_t;
-#define Filter3p3zReset Filter3p3zReset_HW
-#define Filter3p3zInit Filter3p3zInit_HW
-#ifdef FILTER_3P3Z_USE_INLINE
-#define Filter3p3z Filter3p3z_HW_inline
-#else
-#define Filter3p3z Filter3p3z_HW_noinline
-#endif
 #endif // ifdef FILTER_3P3Z_USE_VARIANT_HW
 
 #ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_config_df1_q23_t filter_3p3z_config_t;
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_static_df1_q23_t filter_3p3z_static_t;
 typedef filter_3p3z_context_df1_q23_t filter_3p3z_context_t;
-#define Filter3p3zReset Filter3p3zReset_DF1_Q23
-#define Filter3p3zInit Filter3p3zInit_DF1_Q23
-#ifdef FILTER_3P3Z_USE_INLINE
-#define Filter3p3z Filter3p3z_DF1_Q23_inline
-#else
-#define Filter3p3z Filter3p3z_DF1_Q23_noinline
-#endif
 #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
 
 #ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_config_df2_f32_t filter_3p3z_config_t;
+// coverity[misra_c_2012_rule_2_3_violation]
 typedef filter_3p3z_static_df2_f32_t filter_3p3z_static_t;
 typedef filter_3p3z_context_df2_f32_t filter_3p3z_context_t;
-#define Filter3p3zReset Filter3p3zReset_DF2_F32
-#define Filter3p3zInit Filter3p3zInit_DF2_F32
-#ifdef FILTER_3P3Z_USE_INLINE
-#define Filter3p3z Filter3p3z_DF2_F32_inline
-#else
-#define Filter3p3z Filter3p3z_DF2_F32_noinline
-#endif
 #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
 
 /* ==============================================================================
@@ -397,13 +384,28 @@ typedef filter_3p3z_context_df2_f32_t filter_3p3z_context_t;
  * It has two inputs in (Q0.15) for setpoint and signal and it returns a pointer to the result value (Q0.23).
  */
 
+
 /**
  * 3p3z filter reset
  * Resets the internal module context
  *
  * @param[in] context   : Pointer to the context structure
  */
-void Filter3p3zReset(filter_3p3z_context_t* const context);
+PWRLIB_INLINE void Filter3p3zReset(filter_3p3z_context_t* const context)
+{
+    #ifdef FILTER_3P3Z_USE_VARIANT_HW
+    Filter3p3zReset_HW(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_HW
+
+    #ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+    Filter3p3zReset_DF1_Q23(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+
+    #ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+    Filter3p3zReset_DF2_F32(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+}
+
 
 /**
  * 3p3z filter init
@@ -411,39 +413,71 @@ void Filter3p3zReset(filter_3p3z_context_t* const context);
  *
  * @param[in] context   : Pointer to the context structure
  */
-void Filter3p3zInit(filter_3p3z_context_t* const context);
+PWRLIB_INLINE void Filter3p3zInit(filter_3p3z_context_t* const context)
+{
+    #ifdef FILTER_3P3Z_USE_VARIANT_HW
+    Filter3p3zInit_HW(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_HW
+
+    #ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+    Filter3p3zInit_DF1_Q23(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+
+    #ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+    Filter3p3zInit_DF2_F32(context);
+    #endif // ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+}
 
 
 /**
  * 3p3z filter
- * Executes the 3p3z filter equation:
- *
- * @param[in] context   : Pointer to the context structure
- * @param[in] dIn0_0q15 : Normalized setpoint (Q0.15)
- * @param[in] dIn1_0q15 : Normalized signal (Q0.15)
- * @param[in] dOut_0q23 : Pointer to output value (Q0.23)
+ * Executes the 3p3z filter equation.
+ * @param[in] context : Pointer to the context structure
+ * @param[in] dIn0 : Normalized setpoint
+ * @param[in] dIn1 : Normalized signal
+ * @param[in] dOut : Pointer to output value
  */
-#ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
-    #ifdef FILTER_3P3Z_USE_INLINE
+#if defined(FILTER_3P3Z_USE_VARIANT_DF2_F32)
 PWRLIB_INLINE void Filter3p3z(
     filter_3p3z_context_t* const context,
-    float32_t const dIn0, float32_t const dIn1, float32_t* dOut);
-    #else
-void Filter3p3z(
-    filter_3p3z_context_t* const context,
-    float32_t const dIn0, float32_t const dIn1, float32_t* dOut);
-    #endif
-#else
+    float32_t const dIn0, float32_t const dIn1, float32_t* dOut)
+{
     #ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_DF2_F32_inline(context, dIn0, dIn1, dOut);
+    #else // ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_DF2_F32_noinline(context, dIn0, dIn1, dOut);
+    #endif // ifdef FILTER_3P3Z_USE_INLINE
+}
+
+
+#elif defined(FILTER_3P3Z_USE_VARIANT_HW)
 PWRLIB_INLINE void Filter3p3z(
     filter_3p3z_context_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23);
-    #else
-void Filter3p3z(
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut)
+{
+    #ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_HW_inline(context, dIn0, dIn1, dOut);
+    #else // ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_HW_noinline(context, dIn0, dIn1, dOut);
+    #endif // ifdef FILTER_3P3Z_USE_INLINE
+}
+
+
+#else // if defined(FILTER_3P3Z_USE_VARIANT_HW)
+PWRLIB_INLINE void Filter3p3z(
     filter_3p3z_context_t* const context,
-    int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t* dOut_0q23);
-    #endif
-#endif // ifdef FILTER_3P3Z_USE_VARIANT_DF2_F32
+    int16_t const dIn0, int16_t const dIn1, int32_t* dOut)
+{
+    #ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_DF1_Q23_inline(context, dIn0, dIn1, dOut);
+    #else // ifdef FILTER_3P3Z_USE_INLINE
+    Filter3p3z_DF1_Q23_noinline(context, dIn0, dIn1, dOut);
+    #endif // ifdef FILTER_3P3Z_USE_INLINE
+}
+
+
+#endif // ifdef FILTER_3P3Z_USE_VARIANT_DF1_Q23
+
 
 /** \} group_filter_3p3z_functions */
 

@@ -4,7 +4,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -44,7 +44,7 @@ extern "C" {
 
 #include "mtb_mw_pctrl_compiler.h"
 #include "mtb_mw_pctrl_config.h"
-#if defined(AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW) || defined(CY_DOXYGEN)
+#if defined(FILTER_3P3Z_USE_VARIANT_HW) || defined(CY_DOXYGEN)
 #include "filter_3p3z.h"
 #endif
 
@@ -97,7 +97,7 @@ typedef struct
     float32_t lpc_dd_alpha;           /**< Low-pass filter coefficient for sequence extraction (alpha) */
     float32_t lpc_dd_beta;            /**< Low-pass filter coefficient for sequence extraction (beta = 1-alpha) */
     float32_t lpc_dd_init;            /**< Initial value for sequence component filters */
-    #if defined(AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW) || defined(CY_DOXYGEN)
+    #if defined(FILTER_3P3Z_USE_VARIANT_HW) || defined(CY_DOXYGEN)
     filter_3p3z_context_t ctrl3p3z_ctx; /**< Optional 3p3z HW control loop context (user allocates & initializes) */
     float32_t scale_3p3z;             /**< Scaling factor to convert Q0.23 to float for 3p3z controller output*/
     #endif
@@ -173,7 +173,7 @@ typedef struct
     float32_t dq_pos_filt;              /**< Filtered q-axis voltage in +ve sequence frame */
     float32_t dd_neg_filt;              /**< Filtered d-axis voltage in -ve sequence frame */
     float32_t dq_neg_filt;              /**< Filtered q-axis voltage in -ve sequence frame */
-    #if defined(AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW) || defined(CY_DOXYGEN)
+    #if defined(FILTER_3P3Z_USE_VARIANT_HW) || defined(CY_DOXYGEN)
     int32_t ctrl3p3z_out;           /**< Last 3p3z controller output mapped to cterm */
     #endif
     #endif /* AC_RMS_PLL_USE_VARIANT_3PHDD */

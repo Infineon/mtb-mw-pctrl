@@ -25,6 +25,7 @@ MathJax.Hub.Config({
 </script>
 <script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen_style.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -98,30 +99,30 @@ $(document).ready(function(){initNavTree('group__group__filter__3p3z__functions.
 <a name="details" id="details"></a><h2 class="groupheader">General Description</h2>
 <p >API functions for Filter 3p3z block. </p>
 <p >Each function of the API accepts a pointer to a filter context instance as first parameter. The filter context index is self-contained. No additional local or global static data is needed for filter operation. This makes the implementation reentrant.</p>
-<p >Before using the filter, it must be initialized (<a class="el" href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">Filter3p3zInit</a>) and reset (<a class="el" href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">Filter3p3zReset</a>). Further, the filter_3p3z_context_t::config part of the context must be correctly set by the application.</p>
-<p >The <a class="el" href="group__group__filter__3p3z__functions.html#ga37262cac43cebd4f29513def0b3e8e02">Filter3p3z</a> is called on each input data sample. It has two inputs in (Q0.15) for setpoint and signal and it returns a pointer to the result value (Q0.23). </p>
+<p >Before using the filter, it must be initialized (<a class="el" href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">Filter3p3zInit</a>) and reset (<a class="el" href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">Filter3p3zReset</a>). Further, the filter_3p3z_context_t::config part of the context must be correctly set by the application.</p>
+<p >The <a class="el" href="group__group__filter__3p3z__functions.html#gabcadca368f5f604277e34144b43e62ec">Filter3p3z</a> is called on each input data sample. It has two inputs in (Q0.15) for setpoint and signal and it returns a pointer to the result value (Q0.23). </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga6aff7edddcca68f23e69d00c6e48ca45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">Filter3p3zReset</a> (filter_3p3z_context_t *const context)</td></tr>
-<tr class="memdesc:ga6aff7edddcca68f23e69d00c6e48ca45"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter reset Resets the internal module context  <a href="group__group__filter__3p3z__functions.html#ga6aff7edddcca68f23e69d00c6e48ca45">More...</a><br /></td></tr>
-<tr class="separator:ga6aff7edddcca68f23e69d00c6e48ca45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga93b828348bf014511f3c34b713342d6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">Filter3p3zInit</a> (filter_3p3z_context_t *const context)</td></tr>
-<tr class="memdesc:ga93b828348bf014511f3c34b713342d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter init Initializes the 3p3z filter  <a href="group__group__filter__3p3z__functions.html#ga93b828348bf014511f3c34b713342d6e">More...</a><br /></td></tr>
-<tr class="separator:ga93b828348bf014511f3c34b713342d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga37262cac43cebd4f29513def0b3e8e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#ga37262cac43cebd4f29513def0b3e8e02">Filter3p3z</a> (filter_3p3z_context_t *const context, int16_t const dIn0_0q15, int16_t const dIn1_0q15, int32_t *dOut_0q23)</td></tr>
-<tr class="memdesc:ga37262cac43cebd4f29513def0b3e8e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter Executes the 3p3z filter equation:  <a href="group__group__filter__3p3z__functions.html#ga37262cac43cebd4f29513def0b3e8e02">More...</a><br /></td></tr>
-<tr class="separator:ga37262cac43cebd4f29513def0b3e8e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae6e259abe7529597d12a1a66135c688"><td class="memItemLeft" align="right" valign="top">PWRLIB_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">Filter3p3zReset</a> (filter_3p3z_context_t *const context)</td></tr>
+<tr class="memdesc:gaae6e259abe7529597d12a1a66135c688"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter reset Resets the internal module context  <a href="group__group__filter__3p3z__functions.html#gaae6e259abe7529597d12a1a66135c688">More...</a><br /></td></tr>
+<tr class="separator:gaae6e259abe7529597d12a1a66135c688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga807c6c82647e21bf894d0b79887f68af"><td class="memItemLeft" align="right" valign="top">PWRLIB_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">Filter3p3zInit</a> (filter_3p3z_context_t *const context)</td></tr>
+<tr class="memdesc:ga807c6c82647e21bf894d0b79887f68af"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter init Initializes the 3p3z filter  <a href="group__group__filter__3p3z__functions.html#ga807c6c82647e21bf894d0b79887f68af">More...</a><br /></td></tr>
+<tr class="separator:ga807c6c82647e21bf894d0b79887f68af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabcadca368f5f604277e34144b43e62ec"><td class="memItemLeft" align="right" valign="top">PWRLIB_INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__filter__3p3z__functions.html#gabcadca368f5f604277e34144b43e62ec">Filter3p3z</a> (filter_3p3z_context_t *const context, int16_t const dIn0, int16_t const dIn1, int32_t *dOut)</td></tr>
+<tr class="memdesc:gabcadca368f5f604277e34144b43e62ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">3p3z filter Executes the 3p3z filter equation.  <a href="group__group__filter__3p3z__functions.html#gabcadca368f5f604277e34144b43e62ec">More...</a><br /></td></tr>
+<tr class="separator:gabcadca368f5f604277e34144b43e62ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga6aff7edddcca68f23e69d00c6e48ca45" name="ga6aff7edddcca68f23e69d00c6e48ca45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6aff7edddcca68f23e69d00c6e48ca45">&#9670;&nbsp;</a></span>Filter3p3zReset()</h2>
+<a id="gaae6e259abe7529597d12a1a66135c688" name="gaae6e259abe7529597d12a1a66135c688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaae6e259abe7529597d12a1a66135c688">&#9670;&nbsp;</a></span>Filter3p3zReset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Filter3p3zReset </td>
+          <td class="memname">PWRLIB_INLINE void Filter3p3zReset </td>
           <td>(</td>
           <td class="paramtype">filter_3p3z_context_t *const&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -140,14 +141,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga93b828348bf014511f3c34b713342d6e" name="ga93b828348bf014511f3c34b713342d6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga93b828348bf014511f3c34b713342d6e">&#9670;&nbsp;</a></span>Filter3p3zInit()</h2>
+<a id="ga807c6c82647e21bf894d0b79887f68af" name="ga807c6c82647e21bf894d0b79887f68af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga807c6c82647e21bf894d0b79887f68af">&#9670;&nbsp;</a></span>Filter3p3zInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Filter3p3zInit </td>
+          <td class="memname">PWRLIB_INLINE void Filter3p3zInit </td>
           <td>(</td>
           <td class="paramtype">filter_3p3z_context_t *const&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -166,14 +167,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga37262cac43cebd4f29513def0b3e8e02" name="ga37262cac43cebd4f29513def0b3e8e02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga37262cac43cebd4f29513def0b3e8e02">&#9670;&nbsp;</a></span>Filter3p3z()</h2>
+<a id="gabcadca368f5f604277e34144b43e62ec" name="gabcadca368f5f604277e34144b43e62ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabcadca368f5f604277e34144b43e62ec">&#9670;&nbsp;</a></span>Filter3p3z()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Filter3p3z </td>
+          <td class="memname">PWRLIB_INLINE void Filter3p3z </td>
           <td>(</td>
           <td class="paramtype">filter_3p3z_context_t *const&#160;</td>
           <td class="paramname"><em>context</em>, </td>
@@ -182,19 +183,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int16_t const&#160;</td>
-          <td class="paramname"><em>dIn0_0q15</em>, </td>
+          <td class="paramname"><em>dIn0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int16_t const&#160;</td>
-          <td class="paramname"><em>dIn1_0q15</em>, </td>
+          <td class="paramname"><em>dIn1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>dOut_0q23</em>&#160;</td>
+          <td class="paramname"><em>dOut</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -204,13 +205,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>3p3z filter Executes the 3p3z filter equation: </p>
+<p>3p3z filter Executes the 3p3z filter equation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>: Pointer to the context structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dIn0_0q15</td><td>: Normalized setpoint (Q0.15) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dIn1_0q15</td><td>: Normalized signal (Q0.15) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dOut_0q23</td><td>: Pointer to output value (Q0.23) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dIn0</td><td>: Normalized setpoint </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dIn1</td><td>: Normalized signal </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dOut</td><td>: Pointer to output value </td></tr>
   </table>
   </dd>
 </dl>

@@ -6,5 +6,6 @@ var searchData=
   ['kosg3_3',['Kosg3',['../group__group__ac__rms__pll__typedefs__and__structures.html#a11ccfabcd3b3ec0bb1af5638eb937f09',1,'ac_rms_pll_config_t']]],
   ['kosg5_4',['Kosg5',['../group__group__ac__rms__pll__typedefs__and__structures.html#a9d5b9307ea4d7cc275d04565222280b0',1,'ac_rms_pll_config_t']]],
   ['kp_5',['Kp',['../group__group__ac__rms__pll__typedefs__and__structures.html#a2f56672e4f0c17a5ebe6a0509ff4e66d',1,'ac_rms_pll_config_t']]],
-  ['krms_6',['Krms',['../group__group__ac__rms__pll__typedefs__and__structures.html#a01a0f9020be3e38a4c599f9a4643e4b7',1,'ac_rms_pll_config_t']]]
+  ['kp_5fzerosequence_6',['Kp_zerosequence',['../group__group__rfc__typedefs__and__structures.html#ad58f097461abe3982c5ae3e0131c367d',1,'rfc_outer_config_t']]],
+  ['krms_7',['Krms',['../group__group__ac__rms__pll__typedefs__and__structures.html#a01a0f9020be3e38a4c599f9a4643e4b7',1,'ac_rms_pll_config_t']]]
 ];

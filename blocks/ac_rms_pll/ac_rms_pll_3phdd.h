@@ -13,7 +13,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -56,7 +56,7 @@ extern "C" {
 #include "ac_rms_pll_port.h"
 #include "ac_rms_pll_types.h"
 #include "cy_pctrl_log.h"
-#ifdef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+#ifdef FILTER_3P3Z_USE_VARIANT_HW
 #include "filter_3p3z.h"
 #endif
 
@@ -193,7 +193,7 @@ PWRLIB_INLINE void AcRmsPll_3phdd_inline(ac_rms_pll_context_t* const context,
     /* Normalize the input using decoupled q component */
     context->vars.q_n = context->vars.q/(context->vars.rms_raw + AC_RMS_PLL_SMALL_NUM);
 
-    #ifndef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+    #ifndef FILTER_3P3Z_USE_VARIANT_HW
     /* PI Regulator to drive q_n to zero (using decoupled q component) */
     /* Integral term */
     context->vars.iterm += context->config.Ki * context->vars.q_n * context->config.dt;
@@ -228,12 +228,12 @@ PWRLIB_INLINE void AcRmsPll_3phdd_inline(ac_rms_pll_context_t* const context,
         /*Do nothing*/
     }
     /* End PI regulator */
-    #else // ifndef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+    #else // ifndef FILTER_3P3Z_USE_VARIANT_HW
     /* 3p3z HW control path: controller expects Q0.15 fixed-point inputs and Q0.23 fixed-point outputs */
     Filter3p3z(&context->config.ctrl3p3z_ctx, 0, ACRMSPLL_F32TOQ16(context->vars.q_n), &context->vars.ctrl3p3z_out);
     /* Back to float and scaled */
     context->vars.cterm = context->config.scale_3p3z*ACRMSPLL_Q24TOF32(context->vars.ctrl3p3z_out);
-    #endif // ifndef AC_RMS_PLL_3PHDD_USE_CTRL_3P3Z_HW
+    #endif // ifndef FILTER_3P3Z_USE_VARIANT_HW
 
     /* Add regulator effort to nominal frequency */
     context->vars.omega_raw = context->vars.cterm + context->config.omega_n;

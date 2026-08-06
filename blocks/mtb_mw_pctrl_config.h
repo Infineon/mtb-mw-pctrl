@@ -5,7 +5,7 @@
  */
 
 /* ===========================================================================
-** Copyright (C) 2025 Infineon Technologies AG
+** Copyright (C) 2026 Infineon Technologies AG
 ** All rights reserved.
 ** ===========================================================================
 **
@@ -43,7 +43,11 @@ extern "C" {
  * ==============================================================================
  */
 #include "mtb_mw_pctrl_compiler.h"
+
+#if !defined(MTB_MW_PCTRL_USER_CONFIG_H) && !defined(CY_LIBNAME_mtb_mw_pctrl)
+/* Include user configuration unless already included or building as a standalone library */
 #include "mtb_mw_pctrl_user_config.h"
+#endif
 
 #if !defined(FILTER_3P3Z_USE_VARIANT_DF1_Q23) && \
     !defined(FILTER_3P3Z_USE_VARIANT_HW) && \
@@ -51,6 +55,7 @@ extern "C" {
 /* Uncomment one option to select the global default for the 3P3Z filter
  */
 #define FILTER_3P3Z_USE_VARIANT_DF1_Q23
+//#define FILTER_3P3Z_USE_VARIANT_DF2_F32
 //#define FILTER_3P3Z_USE_VARIANT_HW
 #endif
 
@@ -175,6 +180,26 @@ extern "C" {
 #error "MPPT_USE_VARIANT_PNO must be defined."
 #endif
 
+#if !defined(RFC_USE_VARIANT_F32)
+/* Uncomment one option to select the global default for RFC
+ */
+#define RFC_USE_VARIANT_F32
+#endif
+
+#ifndef RFC_USE_INLINE
+/* Uncomment for using function inlining as global default for RFC
+ */
+//#define RFC_USE_INLINE
+#endif
+
+/* Check for invalid combinations
+ */
+#if !defined(RFC_USE_VARIANT_F32)
+#error "RFC_USE_VARIANT_F32 must be defined."
+#endif
+
+#ifdef RFC_USE_VARIANT_F32
+
 /* Uncomment to enable logging on PCTRL library level.
  * Note that this might slow down the execution.
  */
@@ -185,6 +210,8 @@ extern "C" {
 #ifdef __cplusplus
 } /* Extern C */
 #endif
+
+#endif /* ifdef RFC_USE_VARIANT_F32 */
 
 #endif // #ifndef MTB_MW_PCTRL_CONFIG_H__
 
